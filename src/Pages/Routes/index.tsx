@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from '../components/Layout';
+import Layout from '../../Components/Common/Layout';
 import Intro from './Intro';
 import Login from './Intro/Login';
 import HyeyeonPage from './hyeyeon';
