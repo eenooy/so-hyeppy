@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-// import ISample from '../../../Types/interfaces';
+// import { loginDataState } from '../../Recoil/loginData';
 
 const SoyoonPage: React.FC = () => {
-  // const [loginData, setLoginData] = useRecoilState(ISample);
+  // const [loginData, setLoginData] = useRecoilState(loginDataState);
 
   // console.log(loginData, 'loginData @@');
 
