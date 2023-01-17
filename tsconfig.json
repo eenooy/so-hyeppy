@@ -21,6 +21,16 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "**/*.ts",
+    "**/*.tsx",
+    "./src",
+    "custom.d.ts",
+    "styles",
+    "pages",
+    "public"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
   ]
 }
