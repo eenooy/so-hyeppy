@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
-// import { loginDataState } from '../../Recoil/loginData';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { loginUser } from '../../Atom/Users';
 
-const SoyoonPage: React.FC = () => {
-  // const [loginData, setLoginData] = useRecoilState(loginDataState);
+const SoyoonPage = () => {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useRecoilState(loginUser);
 
-  // console.log(loginData, 'loginData @@');
-
+  console.log('loginUser :: @@', loginUser);
   return (
     <>
       <div>SoyoonPage 입니다.</div>
+      <input type="text" defaultValue={userName} onChange={(e) => setUserName((name) => e.target.value)} />
+      <button onClick={() => navigate('/soyoon/login')}>로그인페이지로!</button>
+      <div>{userName && userName}</div>
     </>
   );
 };
