@@ -19,7 +19,7 @@ const SoyoonLogin = () => {
       <button
         onClick={() => {
           navigate(-1);
-          setUserName((name) => '초기화 뿜!');
+          setUserName((name) => '초기화 뿜!!!!');
         }}
       >
         뒤로가기!
