@@ -40,6 +40,7 @@ const HyeyeonLogin = () => {
       navigate('/hyeyeon');
     } else {
       console.log('로그인실패');
+      alert('로그인 실패: admin,pw 를 입력해야 넘어감');
     }
   };
 
