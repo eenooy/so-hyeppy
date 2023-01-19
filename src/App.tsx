@@ -6,6 +6,7 @@ import HyeyeonPage from './Pages/Hyeyeon';
 import HyeyeonLogin from './Pages/Hyeyeon/Login';
 import SoyoonPage from './Pages/Soyoon';
 import SoyoonLogin from './Pages/Soyoon/Login';
+import './Styles/tailwind.css';
 
 const App = () => {
   return (

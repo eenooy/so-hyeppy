@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { RecoilRootProps, useRecoilValue, useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router';
 import { IUser, User, LoginState } from '../../Atom/Atoms';
+import styled from 'styled-components';
+import Button from '../../Components/Button';
+const StyledInput = styled.input`
+  border: 1px solid #dcdcdd;
+  background-color: #fff;
+  padding: 10px 15px;
+`;
 
 const HyeyeonLogin = () => {
   const navigate = useNavigate();
@@ -50,24 +57,26 @@ const HyeyeonLogin = () => {
 
   return (
     <>
-      <div className="bg-blue-400;">
-        <input
-          className="enter_input"
-          name="userId"
-          value={userId}
-          placeholder="아이디를 입력하세요"
-          onChange={onChange}
-        />
-        <input
-          className="enter_input"
-          name="userPw"
-          value={userPw}
-          placeholder="비밀번호를 입력하세요"
-          onChange={onChange}
-        />
-        <button className="enter_btn" onClick={onClick}>
-          로그인
-        </button>
+      <div className="login">
+        <div className="loginBox">
+          <StyledInput
+            className="input"
+            name="userId"
+            value={userId}
+            placeholder="아이디를 입력하세요"
+            onChange={onChange}
+          />
+          <StyledInput
+            className="input"
+            name="userPw"
+            value={userPw}
+            placeholder="비밀번호를 입력하세요"
+            onChange={onChange}
+          />
+          <Button className="enter_btn" onClick={onClick}>
+            로그인
+          </Button>
+        </div>
       </div>
     </>
   );
