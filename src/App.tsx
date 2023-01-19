@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import Intro from './Pages/Intro';
 import Login from './Pages/Intro/Login';
-import HyeyeonPage from './Pages/hyeyeon';
-import HyeyeonLogin from './Pages/hyeyeon/Login';
-import SoyoonPage from './Pages/soyoon';
-import SoyoonLogin from './Pages/soyoon/Login';
+import HyeyeonPage from './Pages/Hyeyeon';
+import HyeyeonLogin from './Pages/Hyeyeon/Login';
+import SoyoonPage from './Pages/Soyoon';
+import SoyoonLogin from './Pages/Soyoon/Login';
 
 const App = () => {
   return (
@@ -14,10 +14,10 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Intro />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/hyeyeon" element={<HyeyeonPage />} />
-          <Route path="/hyeyeon/login" element={<HyeyeonLogin />} />
-          <Route path="/soyoon" element={<SoyoonPage />} />
-          <Route path="/soyoon/login" element={<SoyoonLogin />} />
+          <Route path="/Hyeyeon" element={<HyeyeonPage />} />
+          <Route path="/Hyeyeon/login" element={<HyeyeonLogin />} />
+          <Route path="/Soyoon" element={<SoyoonPage />} />
+          <Route path="/Soyoon/login" element={<SoyoonLogin />} />
         </Route>
       </Routes>
     </BrowserRouter>
