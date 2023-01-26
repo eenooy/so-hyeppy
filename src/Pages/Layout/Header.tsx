@@ -20,8 +20,8 @@ const Header: React.FC = () => {
   );
 };
 
-const HeaderContainer = tw.div`
-  flex justify-between items-center w-full h-[85px]
+const HeaderContainer = tw.header`
+  fixed top-0 left-0 flex justify-between items-center w-full h-[85px] z-50 bg-white
 `;
 const Logo_default = styled.h1`
   font-size: 27px;
