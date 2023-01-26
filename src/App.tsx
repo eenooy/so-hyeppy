@@ -13,11 +13,12 @@ const App = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Intro />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/Hyeyeon" element={<HyeyeonPage />} />
           <Route path="/Hyeyeon/login" element={<HyeyeonLogin />} />
           <Route path="/main" element={<Main />} />
         </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/Hyeyeon/login" element={<HyeyeonLogin />} />
       </Routes>
     </BrowserRouter>
   );
