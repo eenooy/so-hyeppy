@@ -8,6 +8,8 @@ export default createGlobalStyle`
     }
     html{
         font-size: 1vw;
+        font-family: 'Noto Sans KR';
+        font-style: normal;
     }
     a{
         color: inherit;

@@ -1,16 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-
+import Header from './Pages/Layout/Header';
+import Footer from './Pages/Layout/Footer';
 const Layout = () => {
   return (
     <>
-      <div
-        className="bg-blue-400"
-        style={{ backgroundColor: '#36f', height: '50px', color: '#fff', padding: '15px', fontSize: '25px' }}
-      >
-        렌더링이 잘 되는가
-      </div>
-      <Outlet />
+      <Header></Header>
+      <main>
+        <Outlet />
+      </main>
+      <Footer></Footer>
     </>
   );
 };
