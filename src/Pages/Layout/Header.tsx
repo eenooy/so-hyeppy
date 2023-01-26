@@ -7,29 +7,38 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <div className="flex justify-center">
         <Logo_default>So Hyeppy</Logo_default>
-        <ul className="flex ml-[50px]">
-          <li>메뉴1</li>
-          <li>메뉴2</li>
-        </ul>
+        <Nav>
+          <NavItem className="font-bold hover:underline">근무/휴가</NavItem>
+        </Nav>
       </div>
-      <div className="flex">
-        <div>알림</div>
-        <div>이름</div>
+      <div className="flex justify-center items-center ">
+        <Notification className="border-[1px] border-[#a8a8a8] leading-8">알림</Notification>
+        <UserName className="leading-[45px]">so hyeppy</UserName>
       </div>
     </HeaderContainer>
   );
 };
 
 const HeaderContainer = tw.div`
-  flex justify-between items-center w-full h-[85px]
+  flex justify-between items-center w-full h-[85px] pl-[30px] pr-[25px]
+  border-b border-[#a8a8a8] border-solid
 `;
-const Logo_default = styled.h1`
-  font-size: 27px;
-  color: #12121D;
-  font-family: 'Rakkas';
-  font-style: normal;
-  font-weight: bold;
-}
+const Nav = tw.ul`
+  flex ml-[50px]
+`;
+const NavItem = tw.li`
+  text-[#12121D] cursor-pointer mr-[5px] leading-[27px] hover:underline hover:text-[#4B77EE]
+`;
+const Logo_default = tw.h1`
+  text-[27px] font-bold cursor-pointer
+`;
+const UserName = tw.div`
+    w-[47px] h-[47px] bg-[#D9D9D9] text-[#FFF] rounded-full text-center leading-[45px] text-[9px] cursor-pointer
+`;
+
+const Notification = tw.div`
+    w-[30px] h-[30px] border-solid border-2 border-[#a8a8a8] rounded-full leading-1 text-[9px] 
+    text-center leading-8 mr-[10px] cursor-pointer
 `;
 
 export default Header;
