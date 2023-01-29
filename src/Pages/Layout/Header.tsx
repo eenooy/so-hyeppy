@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
+import { useCookies } from 'react-cookie'; // useCookies import
+import { useNavigate } from 'react-router';
+
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(['id']);
+
+  /*로그아웃*/
+  const logOut = () => {
+    removeCookie('id'); // 쿠키를 삭제
+    navigate('/'); // 메인 페이지로 이동
+  };
   return (
     <HeaderContainer>
       <div className="flex justify-center">
@@ -14,6 +25,7 @@ const Header: React.FC = () => {
       <div className="flex justify-center items-center ">
         <Notification className="border-[1px] border-[#a8a8a8] leading-8">알림</Notification>
         <UserName className="leading-[45px]">so hyeppy</UserName>
+        <button onClick={logOut}>로그아웃</button>
       </div>
     </HeaderContainer>
   );

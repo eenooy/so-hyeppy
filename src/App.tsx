@@ -7,21 +7,24 @@ import HyeyeonLogin from './Pages/Hyeyeon/Login';
 import SoyoonPage from './Pages/Soyoon';
 import SoyoonLogin from './Pages/Soyoon/Login';
 import './Styles/tailwind.css';
+import { CookiesProvider } from 'react-cookie';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Intro />} />
-          <Route path="/Hyeyeon" element={<HyeyeonPage />} />
-          <Route path="/Soyoon" element={<SoyoonPage />} />
-          <Route path="/Soyoon/login" element={<SoyoonLogin />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/Hyeyeon/login" element={<HyeyeonLogin />} />
-      </Routes>
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Intro />} />
+            <Route path="/Hyeyeon" element={<HyeyeonPage />} />
+            <Route path="/Soyoon" element={<SoyoonPage />} />
+            <Route path="/Soyoon/login" element={<SoyoonLogin />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/Hyeyeon/login" element={<HyeyeonLogin />} />
+        </Routes>
+      </BrowserRouter>
+    </CookiesProvider>
   );
 };
 

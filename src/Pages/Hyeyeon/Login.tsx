@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { RecoilRootProps, useRecoilValue, useRecoilState } from 'recoil';
-import { useNavigate } from 'react-router';
 import { IUser, User, LoginState } from '../../Atom/Atoms';
 import styled from 'styled-components';
 import Button from '../../Components/Button';
 import tw from 'tailwind-styled-components';
+import { useCookies } from 'react-cookie'; // useCookies import
+import { useNavigate } from 'react-router';
 
 const HyeyeonLogin = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['id']);
   const navigate = useNavigate();
   const [user, setUser] = useRecoilState<IUser>(User);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState<boolean>(LoginState);
@@ -16,6 +18,7 @@ const HyeyeonLogin = () => {
     userPw: '',
   });
 
+  removeCookie('id');
   const { userId, userPw } = inputData;
   const onChange = (event: any) => {
     const { value, name } = event.target;
@@ -33,7 +36,10 @@ const HyeyeonLogin = () => {
     if (api(user)) {
       //페이지 이동
       console.log('페이지 이동');
-      navigate('/hyeyeon');
+      navigate('/');
+      const token = cookies.id;
+      console.log('token2', token);
+      setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
     } else {
       console.log('로그인실패');
       alert('로그인 실패: admin,pw 를 입력해야 넘어감');
