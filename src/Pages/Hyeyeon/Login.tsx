@@ -22,9 +22,6 @@ const HyeyeonLogin = () => {
   const { userId, userPw } = inputData;
   const onChange = (event: any) => {
     const { value, name } = event.target;
-    // setInputData({ userId: event.target.value });
-    console.log(event.target.name);
-    console.log(event.target.value);
     const nextInputs = {
       ...inputData,
       [name]: value,
@@ -38,11 +35,10 @@ const HyeyeonLogin = () => {
       console.log('페이지 이동');
       navigate('/');
       const token = cookies.id;
-      console.log('token2', token);
       setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
     } else {
       console.log('로그인실패');
-      alert('로그인 실패: admin,pw 를 입력해야 넘어감');
+      alert('로그인 실패: id: admin & password: pw 를 입력해야 넘어감');
     }
   };
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
 import { useCookies } from 'react-cookie'; // useCookies import
@@ -23,9 +22,11 @@ const Header: React.FC = () => {
         </Nav>
       </div>
       <div className="flex justify-center items-center ">
-        <Notification className="border-[1px] border-[#a8a8a8] leading-8">알림</Notification>
+        <button onClick={logOut} className="font-bold hover:underline mr-5">
+          로그아웃
+        </button>
+        <Notification className="border-[1px] border-[#a8a8a8]">알림</Notification>
         <UserName className="leading-[45px]">so hyeppy</UserName>
-        <button onClick={logOut}>로그아웃</button>
       </div>
     </HeaderContainer>
   );
@@ -50,7 +51,7 @@ const UserName = tw.div`
 
 const Notification = tw.div`
     w-[30px] h-[30px] border-solid border-2 border-[#a8a8a8] rounded-full leading-1 text-[9px] 
-    text-center leading-8 mr-[10px] cursor-pointer
+    text-center leading-8 mr-[10px] cursor-pointer leading-[31px]
 `;
 
 export default Header;
