@@ -25,12 +25,12 @@ const IntroHead = tw.div`
 `;
 
 const IntroBody = tw.div`
- flex items-center justify-center w-full h-[178px]
-  rounded-t-lg  rounded-r-lg  rounded-b-lg  rounded-l-lg shadow
+ flex items-center justify-center p-[20px]
 `;
 
 const IntroBodyBox = tw.div`
  bg-white w-full h-[178px]
+ rounded-t-lg  rounded-r-lg  rounded-b-lg  rounded-l-lg shadow
 `;
 
 export default Intro;
