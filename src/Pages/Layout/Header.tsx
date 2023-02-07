@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import tw from 'tailwind-styled-components';
-
-import { useCookies } from 'react-cookie'; // useCookies import
 import { useNavigate } from 'react-router';
 import Nav from './Nav';
+// import { useCookies } from 'react-cookie'; // useCookies import
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(['id']);
-
+  // const [cookies, setCookie, removeCookie] = useCookies(['id']);
+  // const insertedToken = localStorage.getItem('access_token');
   /*로그아웃*/
   const logOut = () => {
-    removeCookie('id'); // 쿠키를 삭제
+    localStorage.removeItem('access_token'); // localStorage에 저장된 내용 삭제
+    // removeCookie('id'); // 쿠키를 삭제
     navigate('/'); // 메인 페이지로 이동
   };
   return (

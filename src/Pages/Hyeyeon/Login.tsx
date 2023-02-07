@@ -28,13 +28,16 @@ const HyeyeonLogin = () => {
     setInputData(nextInputs);
   };
 
+  const insertedToken = localStorage.getItem('access_token');
   const onClick = () => {
     if (api(user)) {
       //페이지 이동
       console.log('페이지 이동');
       navigate('/');
       const token = cookies.id;
-      setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
+      // setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
+      localStorage.setItem('access_token', 'loginOk'); // localStorage에 토큰저장 실제는 loginOk 아니고 응답값을 저장해야함
+      console.log('insertedToken', insertedToken);
     } else {
       console.log('로그인실패');
       alert('로그인 실패: id: admin & password: pw 를 입력해야 넘어감');
