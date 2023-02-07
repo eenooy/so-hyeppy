@@ -3,6 +3,7 @@ import tw from 'tailwind-styled-components';
 
 import { useCookies } from 'react-cookie'; // useCookies import
 import { useNavigate } from 'react-router';
+import Nav from './Nav';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -17,10 +18,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <div className="flex justify-center">
         <Logo_default>🐱💙 So Hyeppy</Logo_default>
-        <Nav>
-          <NavItem className="mr-[24px]">홈</NavItem>
-          <NavItem>근무/휴가</NavItem>
-        </Nav>
+        <Nav></Nav>
       </div>
       <div className="flex justify-center items-center ">
         <button onClick={logOut} className="font-bold hover:underline mr-5">
@@ -41,13 +39,6 @@ const Header: React.FC = () => {
 const HeaderContainer = tw.div`
   flex justify-between items-center w-full h-[85px] pl-[30px] pr-[25px]
   border-b border-[#dcdcdd] border-solid 
-`;
-const Nav = tw.ul`
-  flex ml-[50px]
-`;
-const NavItem = tw.li`
-  hover:underline hover:font-bold text-[16px] leading-[31px]
-  text-[#12121D] cursor-pointer mr-[5px] leading-[27px] hover:underline hover:text-[#4B77EE]
 `;
 const Logo_default = tw.h1`
   text-[27px] font-bold cursor-pointer

@@ -3,7 +3,6 @@ import { RecoilRootProps, useRecoilValue, useRecoilState } from 'recoil';
 import { IUser, User, LoginState } from '../../Atom/Atoms';
 import styled from 'styled-components';
 import Button from '../../Components/Button';
-import tw from 'tailwind-styled-components';
 import { useCookies } from 'react-cookie'; // useCookies import
 import { useNavigate } from 'react-router';
 
