@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RecoilRootProps, useRecoilValue, useRecoilState } from 'recoil';
+import { RecoilRootProps, useRecoilValue, useRecoilState, atom } from 'recoil';
 import { IUser, User, LoginState } from '../../Atom/Atoms';
 import styled from 'styled-components';
 import Button from '../../Components/Button';
