@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import tw from 'tailwind-styled-components';
 import { useNavigate } from 'react-router';
-import Nav from './Nav';
-import { useRecoilState, useRecoilValue } from 'recoil';
+
 import { LoginState } from '../../Atom/Atoms';
+import Nav from './Nav';
+import { useRecoilState } from 'recoil';
 
 // import { useCookies } from 'react-cookie'; // useCookies import
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const [loginState, setLoginState] = useRecoilState<any>(LoginState);
-  const insertedToken = localStorage.getItem('access_token');
-  // const [cookies, setCookie, removeCookie] = useCookies(['id']);
+  const insertedToken = localStorage.getItem('access_token'); // localStorage 방식
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+
   /*로그아웃*/
   const logOut = () => {
-    localStorage.removeItem('access_token'); // localStorage에 저장된 내용 삭제
     // removeCookie('id'); // 쿠키를 삭제
+    localStorage.removeItem('access_token'); // localStorage에 저장된 내용 삭제
+    setIsLoggedIn(false);
     navigate('/hyeyeon/login');
   };
   return (

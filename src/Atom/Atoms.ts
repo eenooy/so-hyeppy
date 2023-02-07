@@ -14,10 +14,10 @@ export const User = atom<any>({
     pwd: 'pw',
     name: '관리자',
   },
-  effects_UNSTABLE: [persistAtom],
 });
 
 export const LoginState = atom<boolean>({
   key: 'LoginState',
-  default: true,
+  default: false,
+  effects_UNSTABLE: [persistAtom],
 });

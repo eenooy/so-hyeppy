@@ -6,18 +6,26 @@ import Button from '../../Components/Button';
 import { useCookies } from 'react-cookie'; // useCookies import
 import { useNavigate } from 'react-router';
 
-const HyeyeonLogin = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['id']);
-  const navigate = useNavigate();
-  const [user, setUser] = useRecoilState<IUser>(User);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState<boolean>(LoginState);
+/***
+ * 로그인을 유지하는 방법은 여러가지인것 같다.
+ * 어떤것이 좋은 방법일까? 리코일을 사용해보기로해서 recoil-persist로 유지시켜볼까한다.
+ * 1. 토큰,로컬스토리지,리코일퍼시스트(recoil-persist)
+ * ***/
 
+const HyeyeonLogin = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['id']); //쿠키
+  const [user, setUser] = useRecoilState<IUser>(User);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const navigate = useNavigate();
+
+  // 로그인 입력한 정보담기
   const [inputData, setInputData] = useState<any>({
     userId: '',
     userPw: '',
   });
 
   removeCookie('id');
+
   const { userId, userPw } = inputData;
   const onChange = (event: any) => {
     const { value, name } = event.target;
@@ -33,11 +41,11 @@ const HyeyeonLogin = () => {
     if (api(user)) {
       //페이지 이동
       console.log('페이지 이동');
-      navigate('/');
-      const token = cookies.id;
+      // const token = cookies.id;
       // setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
       localStorage.setItem('access_token', 'loginOk'); // localStorage에 토큰저장 실제는 loginOk 아니고 응답값을 저장해야함
-      console.log('insertedToken', insertedToken);
+      setIsLoggedIn(true);
+      navigate('/');
     } else {
       console.log('로그인실패');
       alert('로그인 실패: id: admin & password: pw 를 입력해야 넘어감');
