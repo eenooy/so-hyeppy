@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
-import { useNavigate, useLocation } from 'react-router-dom';
-
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 const Nav: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [active, setActive] = useState<any>();
 
   // 네브바 클릭 시 useNavigate 로 페이지 이동이 적절한가?
   // 어떤 방법으로 이동 시키는 것이 좋을지 고민해봐야한다.
@@ -14,31 +14,31 @@ const Nav: React.FC = () => {
 
   return (
     <NavWrap>
-      <NavItem
-        className="mr-[24px]"
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        홈
-      </NavItem>
-      <NavItem
-        onClick={() => {
-          navigate('/Attendance');
-        }}
-      >
-        근무/휴가
-      </NavItem>
+      {NAV_ITEMS.map(({ id, name, path }) => {
+        return (
+          <NavLink to={`${path}`} key={id} className={({ isActive }) => (isActive ? 'navLink is_active' : 'navLink')}>
+            {name}
+          </NavLink>
+        );
+      })}
     </NavWrap>
   );
 };
 
+const NAV_ITEMS = [
+  {
+    id: 1,
+    name: '홈',
+    path: '/',
+  },
+  {
+    id: 2,
+    name: '근무/휴가',
+    path: '/Attendance',
+  },
+];
+
 const NavWrap = tw.ul`
   flex ml-[50px]
-`;
-const NavItem = tw.li`
-  hover:underline hover:font-bold text-[16px] leading-[31px]
-  text-[#12121D] cursor-pointer mr-[5px] leading-[27px] hover:underline hover:text-[#4B77EE]
-  
 `;
 export default Nav;

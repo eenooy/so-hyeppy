@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router';
  * 로그인을 유지하는 방법은 여러가지인것 같다.
  * 어떤것이 좋은 방법일까? 리코일을 사용해보기로해서 recoil-persist로 유지시켜볼까한다.
  * 1. 토큰,로컬스토리지,리코일퍼시스트(recoil-persist)
+ * recoil-persist도 결국은 localStorage에 보관된다.
  * ***/
 
 const HyeyeonLogin = () => {
@@ -39,13 +40,13 @@ const HyeyeonLogin = () => {
   const insertedToken = localStorage.getItem('access_token');
   const onClick = () => {
     if (api(user)) {
-      //페이지 이동
       console.log('페이지 이동');
+      setIsLoggedIn(true); // recoil-persist => localStorage에 저장
+      navigate('/');
+      /*** 토큰,localStorage 저장해보기 ***/
       // const token = cookies.id;
       // setCookie('id', 'loginOk'); // 쿠키에 토큰 저장
-      localStorage.setItem('access_token', 'loginOk'); // localStorage에 토큰저장 실제는 loginOk 아니고 응답값을 저장해야함
-      setIsLoggedIn(true);
-      navigate('/');
+      // localStorage.setItem('access_token', 'loginOk'); // localStorage에 토큰저장 실제는 loginOk 아니고 응답값을 저장해야함
     } else {
       console.log('로그인실패');
       alert('로그인 실패: id: admin & password: pw 를 입력해야 넘어감');
