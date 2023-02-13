@@ -39,6 +39,6 @@ const NAV_ITEMS = [
 ];
 
 const NavWrap = tw.ul`
-  flex ml-[50px]
+  flex ml-[50px];
 `;
 export default Nav;
